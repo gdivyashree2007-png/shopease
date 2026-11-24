@@ -1,0 +1,5 @@
+<div class="comment-row" id="comment-{{ comment.pk }}">
+  {% with person=comment.author %}{% include 'social/partials/avatar.html' with size='tiny' %}{% endwith %}
+  <div class="comment-copy"><div class="comment-meta"><a href="{% url 'profile' comment.author.username %}">@{{ comment.author.username }}</a><time datetime="{{ comment.created_at|date:'c' }}">{{ comment.created_at|timesince }} ago</time></div><p>{{ comment.text|linebreaksbr }}</p></div>
+  {% if request.user.is_authenticated and request.user.id == comment.author_id %}<button class="icon-button comment-delete" type="button" title="Delete comment" aria-label="Delete comment" data-comment-delete-url="{% url 'comment_delete' comment.pk %}">×</button>{% endif %}
+</div>

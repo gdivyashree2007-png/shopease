@@ -1,0 +1,5 @@
+{% extends 'social/base.html' %}
+{% block title %}Post by @{{ post.author.username }} · SocialHub{% endblock %}
+{% block content %}
+<div class="single-post-page"><a class="back-link" href="{% url 'home' %}">← Back to the feed</a><p class="eyebrow">A LITTLE SOMETHING SHARED</p><h1 class="single-post-title">A post from <a href="{% url 'profile' post.author.username %}">@{{ post.author.username }}</a></h1>{% include 'social/partials/post_card.html' with request=request user=user liked_post_ids=liked_post_ids %}<aside class="single-post-aside"><a href="{% url 'explore' %}">Find another good conversation ↗</a></aside></div>
+{% endblock %}

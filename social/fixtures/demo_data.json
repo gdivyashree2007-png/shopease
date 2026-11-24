@@ -1,0 +1,582 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6INHNMNQo6WBKUaNMUgK0N$DychuInuxn6P6ae59u8icdDQ9KxpmH/FcvghMtj9aTc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "maya",
+    "first_name": "",
+    "last_name": "",
+    "email": "maya@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T07:00:30.366Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$QyXhRUL3cCn2Pe7US4qULV$C2QcPRfdJLfZS8UV45tCj8/BjN/iJ1b7onaQvKkAwws=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "noah",
+    "first_name": "",
+    "last_name": "",
+    "email": "noah@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T07:00:31.083Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5Vexa5X0mkY3bb0HycwLpe$5bYYD3vxg9bMcWAWfbkTeXtC/DndGgNn6269C7wh0bY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "amara",
+    "first_name": "",
+    "last_name": "",
+    "email": "amara@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T07:00:31.778Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Ri95OEzsaqz7KwQE31v2gK$db2fVSdXMt2E5tXJO57kCyP9y0Ag92od6qiuEcMz34k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "leo",
+    "first_name": "",
+    "last_name": "",
+    "email": "leo@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T07:00:32.496Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$fv9Ux8WxJGZj8tP6NzqIxd$y4EgQ0TNqarQCPyMORRGMAax8+sQJEIuxLuriSofzSA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sana",
+    "first_name": "",
+    "last_name": "",
+    "email": "sana@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T07:00:33.186Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$tzP2no59C0IHQyVzTIjAaV$gXyxh2Y+qMYXX/9UIE5nt3cte+8GxCb7Le8yojK8Pe8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "kai",
+    "first_name": "",
+    "last_name": "",
+    "email": "kai@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T07:00:33.877Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "social.profile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "maya"
+    ],
+    "bio": "Collecting small moments and good sentences.",
+    "picture": ""
+  }
+},
+{
+  "model": "social.profile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "noah"
+    ],
+    "bio": "Coffee first, curiosity always.",
+    "picture": ""
+  }
+},
+{
+  "model": "social.profile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "amara"
+    ],
+    "bio": "Making room for a slower kind of good.",
+    "picture": ""
+  }
+},
+{
+  "model": "social.profile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "leo"
+    ],
+    "bio": "Designing things that feel a little more human.",
+    "picture": ""
+  }
+},
+{
+  "model": "social.profile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "sana"
+    ],
+    "bio": "Here for the books, the blooms, the banter.",
+    "picture": ""
+  }
+},
+{
+  "model": "social.profile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "kai"
+    ],
+    "bio": "Usually outside, occasionally online.",
+    "picture": ""
+  }
+},
+{
+  "model": "social.post",
+  "pk": 1,
+  "fields": {
+    "author": [
+      "maya"
+    ],
+    "content": "A tiny reminder for today: you don't have to turn every quiet moment into something productive.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.567Z",
+    "updated_at": "2026-11-17T07:00:34.567Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 2,
+  "fields": {
+    "author": [
+      "noah"
+    ],
+    "content": "Found a new walking route with absolutely no reason to hurry. Highly recommend.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.569Z",
+    "updated_at": "2026-11-17T07:00:34.569Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 3,
+  "fields": {
+    "author": [
+      "amara"
+    ],
+    "content": "Made the kind of lunch that takes ten minutes and tastes like you had a plan.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.571Z",
+    "updated_at": "2026-11-17T07:00:34.571Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 4,
+  "fields": {
+    "author": [
+      "leo"
+    ],
+    "content": "Working on a little project that is mostly an excuse to use a color I love.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.572Z",
+    "updated_at": "2026-11-17T07:00:34.572Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 5,
+  "fields": {
+    "author": [
+      "sana"
+    ],
+    "content": "Three pages into a book and already hoping it never ends.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.574Z",
+    "updated_at": "2026-11-17T07:00:34.574Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 6,
+  "fields": {
+    "author": [
+      "kai"
+    ],
+    "content": "The sky turned pink on my way home. I stopped for a minute. That was the whole plan.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.575Z",
+    "updated_at": "2026-11-17T07:00:34.575Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 7,
+  "fields": {
+    "author": [
+      "maya"
+    ],
+    "content": "What is one ordinary thing that made your day better this week?",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.578Z",
+    "updated_at": "2026-11-17T07:00:34.578Z"
+  }
+},
+{
+  "model": "social.post",
+  "pk": 8,
+  "fields": {
+    "author": [
+      "noah"
+    ],
+    "content": "A good conversation is still my favourite kind of notification.",
+    "image": "",
+    "created_at": "2026-11-17T07:00:34.579Z",
+    "updated_at": "2026-11-17T07:00:34.579Z"
+  }
+},
+{
+  "model": "social.comment",
+  "pk": 1,
+  "fields": {
+    "post": 1,
+    "author": [
+      "noah"
+    ],
+    "text": "Needed this little reminder today.",
+    "created_at": "2026-11-17T07:00:34.581Z"
+  }
+},
+{
+  "model": "social.comment",
+  "pk": 2,
+  "fields": {
+    "post": 1,
+    "author": [
+      "sana"
+    ],
+    "text": "A permission slip for all of us.",
+    "created_at": "2026-11-17T07:00:34.583Z"
+  }
+},
+{
+  "model": "social.comment",
+  "pk": 3,
+  "fields": {
+    "post": 2,
+    "author": [
+      "maya"
+    ],
+    "text": "The no-hurry route is the best route.",
+    "created_at": "2026-11-17T07:00:34.584Z"
+  }
+},
+{
+  "model": "social.comment",
+  "pk": 4,
+  "fields": {
+    "post": 3,
+    "author": [
+      "leo"
+    ],
+    "text": "Ten-minute meals deserve a fan club.",
+    "created_at": "2026-11-17T07:00:34.586Z"
+  }
+},
+{
+  "model": "social.comment",
+  "pk": 5,
+  "fields": {
+    "post": 5,
+    "author": [
+      "amara"
+    ],
+    "text": "Tell us the title when you're ready!",
+    "created_at": "2026-11-17T07:00:34.587Z"
+  }
+},
+{
+  "model": "social.comment",
+  "pk": 6,
+  "fields": {
+    "post": 6,
+    "author": [
+      "kai"
+    ],
+    "text": "Stopping was the plan. Perfect.",
+    "created_at": "2026-11-17T07:00:34.589Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 1,
+  "fields": {
+    "post": 1,
+    "user": [
+      "noah"
+    ],
+    "created_at": "2026-11-17T07:00:34.590Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 2,
+  "fields": {
+    "post": 1,
+    "user": [
+      "amara"
+    ],
+    "created_at": "2026-11-17T07:00:34.592Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 3,
+  "fields": {
+    "post": 1,
+    "user": [
+      "leo"
+    ],
+    "created_at": "2026-11-17T07:00:34.593Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 4,
+  "fields": {
+    "post": 2,
+    "user": [
+      "maya"
+    ],
+    "created_at": "2026-11-17T07:00:34.595Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 5,
+  "fields": {
+    "post": 2,
+    "user": [
+      "sana"
+    ],
+    "created_at": "2026-11-17T07:00:34.596Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 6,
+  "fields": {
+    "post": 3,
+    "user": [
+      "kai"
+    ],
+    "created_at": "2026-11-17T07:00:34.598Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 7,
+  "fields": {
+    "post": 4,
+    "user": [
+      "maya"
+    ],
+    "created_at": "2026-11-17T07:00:34.599Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 8,
+  "fields": {
+    "post": 5,
+    "user": [
+      "noah"
+    ],
+    "created_at": "2026-11-17T07:00:34.600Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 9,
+  "fields": {
+    "post": 6,
+    "user": [
+      "amara"
+    ],
+    "created_at": "2026-11-17T07:00:34.602Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 10,
+  "fields": {
+    "post": 6,
+    "user": [
+      "leo"
+    ],
+    "created_at": "2026-11-17T07:00:34.603Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 11,
+  "fields": {
+    "post": 7,
+    "user": [
+      "sana"
+    ],
+    "created_at": "2026-11-17T07:00:34.605Z"
+  }
+},
+{
+  "model": "social.like",
+  "pk": 12,
+  "fields": {
+    "post": 8,
+    "user": [
+      "kai"
+    ],
+    "created_at": "2026-11-17T07:00:34.606Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 1,
+  "fields": {
+    "follower": [
+      "maya"
+    ],
+    "following": [
+      "noah"
+    ],
+    "created_at": "2026-11-17T07:00:34.608Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 2,
+  "fields": {
+    "follower": [
+      "maya"
+    ],
+    "following": [
+      "amara"
+    ],
+    "created_at": "2026-11-17T07:00:34.609Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 3,
+  "fields": {
+    "follower": [
+      "noah"
+    ],
+    "following": [
+      "maya"
+    ],
+    "created_at": "2026-11-17T07:00:34.611Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 4,
+  "fields": {
+    "follower": [
+      "noah"
+    ],
+    "following": [
+      "leo"
+    ],
+    "created_at": "2026-11-17T07:00:34.612Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 5,
+  "fields": {
+    "follower": [
+      "amara"
+    ],
+    "following": [
+      "sana"
+    ],
+    "created_at": "2026-11-17T07:00:34.613Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 6,
+  "fields": {
+    "follower": [
+      "leo"
+    ],
+    "following": [
+      "kai"
+    ],
+    "created_at": "2026-11-17T07:00:34.615Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 7,
+  "fields": {
+    "follower": [
+      "sana"
+    ],
+    "following": [
+      "maya"
+    ],
+    "created_at": "2026-11-17T07:00:34.616Z"
+  }
+},
+{
+  "model": "social.follow",
+  "pk": 8,
+  "fields": {
+    "follower": [
+      "kai"
+    ],
+    "following": [
+      "amara"
+    ],
+    "created_at": "2026-11-17T07:00:34.618Z"
+  }
+}
+]

@@ -1,0 +1,5 @@
+{% extends 'social/base.html' %}
+{% block title %}{{ heading }} · SocialHub{% endblock %}
+{% block content %}
+<div class="directory-page"><a class="back-link" href="{% url 'profile' person.username %}">← Back to @{{ person.username }}</a><header class="page-heading"><div><p class="eyebrow">GOOD COMPANY</p><h1>{{ heading }}</h1><p class="page-subtitle">The connections that make this place feel like home.</p></div><span class="heading-spark">✳</span></header><div class="people-list">{% for person in people %}<a class="person-row" href="{% url 'profile' person.username %}">{% include 'social/partials/avatar.html' with size='small' %}<span class="person-info"><strong>{{ person.username }}</strong><small>@{{ person.username }}{% if person.profile.bio %} · {{ person.profile.bio|truncatechars:72 }}{% endif %}</small></span><span class="person-arrow">↗</span></a>{% empty %}<div class="empty-state compact-empty"><span class="empty-icon">♡</span><h2>No connections here yet.</h2><p>The best relationships tend to start with a hello.</p></div>{% endfor %}</div></div>
+{% endblock %}

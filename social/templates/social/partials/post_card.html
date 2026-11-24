@@ -1,0 +1,19 @@
+<article class="post-card" id="post-{{ post.pk }}">
+  <div class="post-topline">
+    {% with person=post.author %}{% include 'social/partials/avatar.html' with size='small' %}{% endwith %}
+    <div class="post-author"><a href="{% url 'profile' post.author.username %}" class="author-name">{{ post.author.username }}</a><span class="post-handle">@{{ post.author.username }}</span></div>
+    <a class="post-time" href="{% url 'post_detail' post.pk %}" title="Open post"><time datetime="{{ post.created_at|date:'c' }}">{{ post.created_at|timesince }} ago</time><span>↗</span></a>
+  </div>
+  <div class="post-content"><p>{{ post.content|linebreaksbr }}</p>{% if post.image %}<a class="post-image-link" href="{{ post.image.url }}" target="_blank" rel="noopener"><img class="post-image" src="{{ post.image.url }}" alt="Image shared by {{ post.author.username }}" loading="lazy"></a>{% endif %}</div>
+  <div class="post-actions">
+    <div class="post-action-group">
+      {% if user.is_authenticated %}<button class="like-button {% if post.pk in liked_post_ids %}is-liked{% endif %}" type="button" data-like-url="{% url 'like_toggle' post.pk %}" aria-label="{% if post.pk in liked_post_ids %}Unlike{% else %}Like{% endif %} post" aria-pressed="{% if post.pk in liked_post_ids %}true{% else %}false{% endif %}"><span class="heart">{% if post.pk in liked_post_ids %}♥{% else %}♡{% endif %}</span><span data-like-count>{{ post.likes_total|default:0 }}</span></button>{% else %}<a class="like-button" href="{% url 'login' %}?next={{ request.path }}"><span class="heart">♡</span><span>{{ post.likes_total|default:0 }}</span></a>{% endif %}
+      <a class="comment-count" href="{% url 'post_detail' post.pk %}#comments"><span>◌</span><span data-comment-count>{{ post.comments_total|default:0 }}</span><span class="comment-word">replies</span></a>
+    </div>
+    {% if user.is_authenticated and user.id == post.author_id %}<div class="post-owner-actions"><a class="text-button subtle-button" href="{% url 'post_edit' post.pk %}">Edit</a><form action="{% url 'post_delete' post.pk %}" method="post" class="inline-form" data-confirm="Delete this post? This cannot be undone.">{% csrf_token %}<button class="text-button subtle-button danger-text" type="submit">Delete</button></form></div>{% endif %}
+  </div>
+  <section class="comment-section" id="comments-{{ post.pk }}" aria-label="Comments">
+    <div class="comment-list" data-comment-list>{% for comment in post.comments.all %}{% include 'social/partials/comment.html' with request=request %}{% empty %}<p class="empty-comments" data-empty-comments>Be the first to reply.</p>{% endfor %}</div>
+    {% if user.is_authenticated %}<form class="comment-form" data-comment-form data-comment-url="{% url 'comment_create' post.pk %}"><label class="sr-only" for="comment-input-{{ post.pk }}">Write a reply</label><input id="comment-input-{{ post.pk }}" type="text" name="text" maxlength="500" placeholder="Add a thoughtful reply…" required><button type="submit" aria-label="Send reply">↗</button></form><p class="inline-status" aria-live="polite"></p>{% else %}<p class="comment-signin"><a href="{% url 'login' %}">Log in</a> to join the conversation.</p>{% endif %}
+  </section>
+</article>

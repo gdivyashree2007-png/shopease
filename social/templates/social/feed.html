@@ -1,0 +1,17 @@
+{% extends 'social/base.html' %}
+{% block title %}{{ title }} · SocialHub{% endblock %}
+{% block content %}
+<div class="content-grid">
+  <section class="feed-main">
+    <header class="page-heading"><div><p class="eyebrow">YOUR CORNER OF THE INTERNET</p><h1>{{ title }}</h1><p class="page-subtitle">{{ subtitle }}</p></div><span class="heading-spark">✳</span></header>
+    {% if user.is_authenticated %}<a class="compose-prompt" href="{% url 'post_create' %}"><span class="compose-plus">＋</span><span>Got a thought worth sharing?</span><span class="compose-cta">Write a post <b>↗</b></span></a>{% else %}<div class="welcome-strip"><div><b>Make room for better conversations.</b><span>Sign up to post, follow, and find your people.</span></div><a class="create-button" href="{% url 'register' %}">Create your account ↗</a></div>{% endif %}
+    <div class="post-stream">{% for post in posts %}{% include 'social/partials/post_card.html' with request=request user=user liked_post_ids=liked_post_ids %}{% empty %}<div class="empty-state"><span class="empty-icon">✳</span><h2>It’s quiet here. For now.</h2><p>{% if title == 'Your feed' %}Follow a few people and their posts will find their way here.{% else %}Be the first to share something with the community.{% endif %}</p><a class="create-button" href="{% url 'explore' %}">Meet the community <span>↗</span></a></div>{% endfor %}</div>
+    {% if page_obj.has_other_pages %}<nav class="pagination" aria-label="Feed pages">{% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}">← Newer</a>{% else %}<span></span>{% endif %}<span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>{% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}">Older →</a>{% endif %}</nav>{% endif %}
+  </section>
+  <aside class="feed-aside">
+    <div class="aside-card hello-card"><div class="hello-mark">s.</div><p class="eyebrow">THE SOCIALHUB WAY</p><h2>Good people.<br>Better conversations.</h2><p>Show up as you are. Share the little things, the big ideas, and everything in between.</p><a href="{% url 'explore' %}">Take a look around <span>↗</span></a></div>
+    <div class="aside-card mini-card"><div class="mini-card-top"><span class="eyebrow">A SMALL REMINDER</span><span>✦</span></div><p>“A good conversation is like a little vacation.”</p><span class="mini-card-author">— Unknown, probably online</span></div>
+    <div class="aside-links"><a href="{% url 'explore' %}">Explore posts</a><span>·</span><a href="{% url 'search' %}">Find people</a>{% if user.is_authenticated %}<span>·</span><a href="{% url 'profile' user.username %}">Your profile</a>{% endif %}</div>
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'social/base.html' %}
+{% block title %}Log in · SocialHub{% endblock %}
+{% block content %}
+<div class="auth-layout"><div class="auth-aside"><span class="auth-deco">↗</span><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h1>Your corner.<br>Your people.<br>Your pace.</h1><p>Good conversations will be right here when you are.</p></div><section class="auth-card"><p class="eyebrow">WELCOME BACK</p><h2>Log in</h2><p class="auth-intro">We saved you a seat.</p>
+<form method="post" class="form-stack">{% csrf_token %}{% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}{% for field in form %}<div class="form-field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% for error in field.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</div>{% endfor %}<input type="hidden" name="next" value="{{ next }}"><button class="create-button full-button" type="submit">Log in <span>↗</span></button></form><p class="auth-switch">New around here? <a href="{% url 'register' %}">Create an account</a></p></section></div>
+{% endblock %}

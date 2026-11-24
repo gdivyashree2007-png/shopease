@@ -1,0 +1,19 @@
+{% extends 'social/base.html' %}
+{% block title %}@{{ person.username }} · SocialHub{% endblock %}
+{% block content %}
+<section class="profile-page">
+  <div class="profile-cover"><span class="cover-orbit orbit-one"></span><span class="cover-orbit orbit-two"></span><span class="cover-note">a good place to be</span></div>
+  <div class="profile-body">
+    <div class="profile-heading">
+      {% with person=person %}{% include 'social/partials/avatar.html' with size='large' %}{% endwith %}
+      <div class="profile-title"><h1>{{ person.username }}</h1><span>@{{ person.username }}</span></div>
+      {% if user.is_authenticated and user.id == person.id %}<a class="outline-button" href="{% url 'edit_profile' person.username %}">Edit profile</a>{% elif user.is_authenticated %}<button class="follow-button {% if followed %}is-following{% endif %}" type="button" data-follow-url="{% url 'follow_toggle' person.username %}" aria-pressed="{{ followed|yesno:'true,false' }}">{% if followed %}Following{% else %}＋ Follow{% endif %}</button>{% else %}<a class="outline-button" href="{% url 'login' %}">Follow</a>{% endif %}
+    </div>
+    {% if person.profile.bio %}<p class="profile-bio">{{ person.profile.bio|linebreaksbr }}</p>{% else %}<p class="profile-bio muted-copy">A little space to say hello.</p>{% endif %}
+    <div class="profile-meta"><span>◷ Joined {{ person.date_joined|date:'F Y' }}</span></div>
+    <div class="profile-stats"><a href="{% url 'followers' person.username %}"><strong id="follower-count">{{ follower_count }}</strong><span>followers</span></a><a href="{% url 'following' person.username %}"><strong>{{ following_count }}</strong><span>following</span></a><span class="profile-post-total"><strong>{{ posts.count }}</strong><span>posts</span></span></div>
+    <p class="inline-status follow-status" aria-live="polite"></p>
+  </div>
+  <div class="profile-posts"><div class="section-heading"><h2>{{ person.username }}’s posts</h2>{% if user.is_authenticated and user.id == person.id %}<a href="{% url 'post_create' %}">＋ New post</a>{% endif %}</div><div class="post-stream">{% for post in posts %}{% include 'social/partials/post_card.html' with request=request user=user liked_post_ids=liked_post_ids %}{% empty %}<div class="empty-state compact-empty"><span class="empty-icon">✳</span><h2>No posts just yet.</h2><p>When {{ person.username }} shares a thought, you’ll find it here.</p></div>{% endfor %}</div></div>
+</section>
+{% endblock %}

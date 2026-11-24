@@ -1,0 +1,10 @@
+{
+  "include": ["config", "social"],
+  "exclude": [".venv", "media", "staticfiles"],
+  "venvPath": ".",
+  "venv": ".venv",
+  "executionEnvironments": [
+    {"root": ".", "pythonVersion": "3.12", "pythonPlatform": "Linux"}
+  ],
+  "typeCheckingMode": "basic"
+}

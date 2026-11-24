@@ -1,0 +1,43 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <meta name="theme-color" content="#f7f7f3">
+  <title>{% block title %}SocialHub — the good corner of your internet{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'social/css/app.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'social/images/socialhub-mark.png' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="{% url 'home' %}" aria-label="SocialHub home"><span class="brand-mark"><i></i><i></i><i></i></span><span>social<span class="brand-light">hub</span></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}is-current{% endif %}" href="{% url 'home' %}"><span class="nav-icon">⌂</span> Feed</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'explore' %}is-current{% endif %}" href="{% url 'explore' %}"><span class="nav-icon">⌕</span> Explore</a>
+      </nav>
+      <form class="nav-search" action="{% url 'search' %}" method="get" role="search"><span aria-hidden="true">⌕</span><input type="search" name="q" value="{{ request.GET.q }}" placeholder="Find your people" aria-label="Search usernames"></form>
+      <div class="nav-actions">
+        {% if user.is_authenticated %}
+          <a class="create-button" href="{% url 'post_create' %}"><span>＋</span> Write</a>
+          <a class="nav-profile" href="{% url 'profile' user.username %}" title="Your profile"><span class="avatar avatar--tiny">{% if user.profile.picture %}<img src="{{ user.profile.picture.url }}" alt="">{% else %}{{ user.username|first|upper }}{% endif %}</span><span class="nav-user-name">{{ user.username }}</span></a>
+          <form action="{% url 'logout' %}" method="post" class="logout-form">{% csrf_token %}<button class="text-button" type="submit">Log out</button></form>
+        {% else %}
+          <a class="text-button" href="{% url 'login' %}">Log in</a><a class="create-button" href="{% url 'register' %}">Join free <span>↗</span></a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  <main id="main" class="page-shell">
+    {% if messages %}<div class="flash-stack" aria-live="polite">{% for message in messages %}<div class="flash flash--{{ message.tags|default:'info' }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer"><span>SocialHub</span><span>A little less noise. A little more you.</span><a href="{% url 'explore' %}">Explore the community ↗</a></footer>
+  <script src="{% static 'social/js/app.js' %}" defer></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
